@@ -30,6 +30,7 @@ CREATE TABLE public.nilai (
 
 ALTER TABLE public.nilai ADD CONSTRAINT nilai_id_siswa_fkey FOREIGN KEY (id_siswa) REFERENCES public.siswa(id);
 
+-- mengisi data tabel
 INSERT INTO public.siswa (nama,umur,jurusan) VALUES
 	 ('Joshua',16,'IPA'),
 	 ('Yunah',15,'IPA'),
@@ -45,3 +46,15 @@ INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES
 	 ('matematika',80),
 	 ('matematika',85),
 	 ('matematika',80);
+
+-- menampilkan semua siswa
+SELECT * FROM siswa;
+
+-- menampilkan nama siswa dengan jurusan IPA
+SELECT nama, jurusan FROM siswa WHERE jurusan='IPA';
+
+-- menampilkan nilai rata-rata tiap siswa
+SELECT siswa.nama, AVG(nilai.nilai) AS rata_nilai
+FROM siswa 
+JOIN nilai ON siswa.id =nilai.id_siswa
+GROUP BY siswa.nama;
