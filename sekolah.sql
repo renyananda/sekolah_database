@@ -58,3 +58,12 @@ SELECT siswa.nama, AVG(nilai.nilai) AS rata_nilai
 FROM siswa 
 JOIN nilai ON siswa.id =nilai.id_siswa
 GROUP BY siswa.nama;
+
+-- melakukan update data
+UPDATE siswa 
+SET jurusan = 'IPA'
+WHERE id = '4';
+
+-- melakukan delete data
+DELETE FROM nilai
+WHERE id = '6';
